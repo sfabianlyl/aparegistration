@@ -25,5 +25,5 @@
             'staff'
         ];
 
-        
+        //rethink data structure. consider JSON
     }
