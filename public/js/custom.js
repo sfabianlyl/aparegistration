@@ -28,7 +28,7 @@ function autoSubmit(e){
 
 $(document).ready(function(){
     $("#autoSubmitForm").on("submit",autoSubmit);
-    $("#autoSubmitForm :input").on("change",function(){
+    $("#autoSubmitForm :input").on("change keyup keydown",function(){
         clearTimeout(autoSaveTimeout);
         autoSaveTimeout=setTimeout(function(){
             $("#autoSubmitForm").submit();
