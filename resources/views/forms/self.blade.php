@@ -2,7 +2,7 @@
 @include("forms.parts.ic", ["value"=>$user->ic??"","name"=>"self[ic]"])
 @include("forms.parts.age", ["value"=>$user->age??"","name"=>"self[age]"])
 @include("forms.parts.category", ["value"=>$user->category??"","name"=>"self[category]"])
-@include("forms.parts.involvement", ["value"=>$user->involvement??"","name"=>"self[involvement]"], "text"=>"ArchKL")
+@include("forms.parts.involvement", ["value"=>$user->involvement??"","name"=>"self[involvement]", "text"=>"ArchKL"])
 @include("forms.parts.order", ["value"=>$user->order??"","name"=>"self[order]"])
 @include("forms.parts.differently_abled", ["value"=>$user->differently_abled??"","name"=>"self[differently_abled]"])
 @include("forms.parts.leadership", ["value"=>$user->leadership??"","name"=>"self[leadership]"])
