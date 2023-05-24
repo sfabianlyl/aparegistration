@@ -1,0 +1,16 @@
+.entity-button{
+    margin-bottom:1rem;
+}
+
+.entity-button label{
+    padding:2rem 1rem;
+    display:inline-block;
+    background-color:var(--white);
+    color:var(--black);
+    transition: background-color .4s, color .4s;
+}
+
+.entity-button label.active{
+    background-color:var(--black);
+    color:var(--white);
+}
