@@ -7,7 +7,7 @@ var autoSaveTimeout;
 function autoSubmit(){
     $.ajax({
         type:"POST",
-        url:$(this).attribute("action"),
+        url:$(this).attr("action"),
         data:$(this).serialize(),
         success:function(data){
             toastr.success("Saved!");
