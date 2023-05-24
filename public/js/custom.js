@@ -10,7 +10,8 @@ $.ajaxSetup({
 });
 var autoSaveTimeout;
 
-function autoSubmit(){
+function autoSubmit(e){
+    e.preventDefault();
     $.ajax({
         type:"POST",
         url:$(this).attr("action"),
@@ -22,6 +23,7 @@ function autoSubmit(){
             console.log(data);
         }
     });
+    
 }
 
 $(document).ready(function(){
