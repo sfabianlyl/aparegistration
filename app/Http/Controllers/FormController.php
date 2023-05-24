@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Detail;
 use App\Models\Registration;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -42,6 +43,7 @@ class FormController extends BaseController
         $user=auth()->user();
         $user->filled=json_encode($request->form);
         $user->save();
+        User::where("id",$user->id)->update($request->self);
         return response()->json(["status"=>"success"]);
     }
 

@@ -30,7 +30,7 @@ class User extends \TCG\Voyager\Models\User
         'leadership',
         'accomodation',
         'diet',
-        'phone',
+        'mobile',
         'allergy',
         'category',
         'details',
