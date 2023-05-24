@@ -2,6 +2,12 @@ toastr.options={
     "preventDuplicates":true,
     "timeOut":"3000"
 }
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 var autoSaveTimeout;
 
 function autoSubmit(){
