@@ -10,6 +10,7 @@
             'name',
             'type',
             'identifier',
+            'form'
         ];
 
         //add: for which form?
