@@ -6,7 +6,7 @@
 @include("forms.parts.differently_abled", ["value"=>$inputs["differently_abled"]??"","name"=>"form[$church][$number][differently_abled]"])
 @include("forms.parts.leadership", ["value"=>$inputs["leadership"]??"","name"=>"form[$church][$number][leadership]"])
 @include("forms.parts.accomodation", ["value"=>$inputs["accomodation"]??"","name"=>"form[$church][$number][accomodation]"])
-@include("forms.parts.diet", ["value"=>$inputs["diet"]??"","name"=>"form[$church][$number][nadietme]"])
+@include("forms.parts.diet", ["value"=>$inputs["diet"]??"","name"=>"form[$church][$number][diet]"])
 @include("forms.parts.allergy", ["value"=>$inputs["allergy"]??"","name"=>"form[$church][$number][allergy]"])
 @include("forms.parts.email", ["value"=>$inputs["email"]??"","name"=>"form[$church][$number][email]"])
 @include("forms.parts.mobile", ["value"=>$inputs["mobile"]??"","name"=>"form[$church][$number][mobile]"])
