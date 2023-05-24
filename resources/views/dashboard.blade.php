@@ -22,7 +22,7 @@
                 <form action="" method="POST">
                     <div class="tab-content" id="formsContent">
                         @foreach($entities as $entity)
-                            <div class="tab-pane fade" id="form{{$entity->id}}" role="tabpanel" aria-labelledby="form-{{$entity->id}}-tab">
+                            <div class="tab-pane fade" id="form-{{$entity->id}}" role="tabpanel" aria-labelledby="form-{{$entity->id}}-tab">
                                 <h4>{{$entity->name}}</h4>
                                 @php
                                     $church=preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ','_',strtolower($entity->name)));
