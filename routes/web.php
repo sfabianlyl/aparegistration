@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
 
+Route::post('/submit', "App\Http\Controllers\FormController@auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

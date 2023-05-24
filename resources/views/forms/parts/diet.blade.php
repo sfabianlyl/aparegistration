@@ -4,7 +4,7 @@
             Dietary Requirements
         </div>
         <div class="mb-3">
-            <input type="text" name="{{$church}}[{{$number}}][diet]" class="form-control" value="{{$value}}">
+            <input type="text" name="form[{{$church}}][{{$number}}][diet]" class="form-control" value="{{$value}}">
         </div>
     </div>
 </div>

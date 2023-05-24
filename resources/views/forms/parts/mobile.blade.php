@@ -3,7 +3,7 @@
     <div class="col-8">
         <div class="d-flex align-items-center">
             <span class="px-3">+6</span>
-            <div style="flex:1;"><input type="text" name="{{$church}}[{{$number}}][mobile]" class="form-control" value="{{$value}}"></div>
+            <div style="flex:1;"><input type="text" name="form[{{$church}}][{{$number}}][mobile]" class="form-control" value="{{$value}}"></div>
         </div>
     </div>
 </div>

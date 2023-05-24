@@ -38,5 +38,12 @@ class FormController extends BaseController
         ));
     }
 
+    public function auto_submit_participants(Request $request){
+        $user=auth()->user();
+        $user->filled=json_encode($request->form);
+        $user->save();
+        return response()->json(["status"=>"success"]);
+    }
+
     
 }

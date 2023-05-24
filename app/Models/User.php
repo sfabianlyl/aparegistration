@@ -34,7 +34,8 @@ class User extends \TCG\Voyager\Models\User
         'allergy',
         'category',
         'details',
-        'involvement'
+        'involvement',
+        'filled'
     ];
 
     /**

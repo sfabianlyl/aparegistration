@@ -14,12 +14,12 @@
                     </div>
                 </div>
             @else
-                <nav class="nav nav-pills flex-column">
+                <nav class="nav nav-pills flex-column mb-5">
                     @foreach ($entities as $entity)
                         <a class="nav-link" href="#form-{{$entity->id}}" id="form-{{$entity->id}}-tab" data-toggle="tab" role="tab" aria-controls="form-{{$entity->id}}">{{$entity->name}}</a>
                     @endforeach
                 </nav>
-                <form action="" method="POST">
+                <form action="{{route("auto.submit.participants")}}" method="POST" id="autoSubmitForm">
                     <div class="tab-content" id="formsContent">
                         @foreach($entities as $entity)
                             <div class="tab-pane fade" id="form-{{$entity->id}}" role="tabpanel" aria-labelledby="form-{{$entity->id}}-tab">

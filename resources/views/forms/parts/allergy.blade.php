@@ -4,7 +4,7 @@
             Allergy / Medical Info
         </div>
         <div class="mb-3">
-            <input type="text" name="{{$church}}[{{$number}}][allergy]" class="form-control" value="{{$value}}">
+            <input type="text" name="form[{{$church}}][{{$number}}][allergy]" class="form-control" value="{{$value}}">
         </div>
     </div>
 </div>
