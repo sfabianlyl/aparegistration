@@ -20,6 +20,7 @@
                     @endforeach
                 </nav>
                 <form action="{{route("auto.submit.participants")}}" method="POST" id="autoSubmitForm">
+                    @csrf
                     <div class="tab-content" id="formsContent">
                         @foreach($entities as $entity)
                             <div class="tab-pane fade" id="form-{{$entity->id}}" role="tabpanel" aria-labelledby="form-{{$entity->id}}-tab">
