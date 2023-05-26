@@ -29,13 +29,19 @@ class FormController extends BaseController
         $user=auth()->user();
         $entities=$user->entities; 
         $inputs=json_decode($user->filled,true);
-        $details=Detail::all();
+        $detailsChapel=Detail::whereJsonContains('forms','chapel')->get();
+        $detailsChurch=Detail::whereJsonContains('forms','church')->get();
+        $detailsMinistry=Detail::whereJsonContains('forms','ministry')->get();
+        $detailsPriest=Detail::whereJsonContains('forms','priest')->get();
         
         return view("dashboard")->with(compact(
             "user",
             "entities",
             "inputs",
-            "details"
+            "detailsChapel",
+            "detailsChurch",
+            "detailsMinistry",
+            "detailsPriest"
         ));
     }
 

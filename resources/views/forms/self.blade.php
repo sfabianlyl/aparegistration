@@ -11,3 +11,12 @@
 @include("forms.parts.allergy", ["value"=>$user->allergy??"","name"=>"self[allergy]"])
 @include("forms.parts.email", ["value"=>$user->email??"","name"=>"self[email]"])
 @include("forms.parts.mobile", ["value"=>$user->mobile??"","name"=>"self[mobile]"])
+
+
+@php
+    $priestDetails=json_decode($user->details,true);
+@endphp
+
+@foreach($details as $detail)
+    @include("forms.types.$detail->type", ["value"=>$priestDetails[$detail->identifier]??"", "name"=>"self[details][$detail->identifier]", "display"=>$detail->name])
+@endforeach

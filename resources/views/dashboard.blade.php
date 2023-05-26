@@ -20,7 +20,7 @@
                     <div class="tab-pane fade" id="form-self" role="tabpanel" aria-labelledby="form-self-tab">
                         <h4>My Details</h4>
                         
-                        @include("forms.self", ["user"=>$user, "details"=>$details])
+                        @include("forms.self", ["user"=>$user, "details"=>$detailsPriest])
                     </div>
                     @foreach($entities as $entity)
                         <div class="tab-pane fade" id="form-{{$entity->id}}" role="tabpanel" aria-labelledby="form-{{$entity->id}}-tab">
@@ -32,13 +32,13 @@
                                 <h6>Person {{$i+1}}</h6>
                                 @switch($entity->category)
                                     @case("Church")
-                                        @include("forms.church", ["inputs"=>$inputs[$church][$i]??[], "details"=>$details, "church"=>$church, "number"=>$i])
+                                        @include("forms.church", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsChurch, "church"=>$church, "number"=>$i])
                                     @break
                                     @case("Chapel")
-                                        @include("forms.chapel", ["inputs"=>$inputs[$church][$i]??[], "details"=>$details, "church"=>$church, "number"=>$i])
+                                        @include("forms.chapel", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsChapel, "church"=>$church, "number"=>$i])
                                     @break
                                     @case("Ministry/Office")
-                                        @include("forms.ministry", ["inputs"=>$inputs[$church][$i]??[], "details"=>$details, "church"=>$church, "number"=>$i])
+                                        @include("forms.ministry", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsMinistry, "church"=>$church, "number"=>$i])
                                     @break
                                     @default
                                         
