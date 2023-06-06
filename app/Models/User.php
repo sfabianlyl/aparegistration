@@ -59,7 +59,12 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     public function entities()
-        {
-            return $this->hasMany(Entity::class);
-        }
+    {
+        return $this->hasMany(Entity::class);
+    }
+
+    public function scopeClergy($query){
+        return $query->where('role_id', 4);
+    }
+
 }
