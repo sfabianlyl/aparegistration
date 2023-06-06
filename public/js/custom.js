@@ -36,5 +36,10 @@ $(document).ready(function(){
     });
     $(".scrollTopButton").on("click",function(){
         window.scrollTo(0,0);
+    });
+    $(document).on("scroll",function(){
+        if($(this).scrollTop()>200) $(".scrollTopButton").show("slow");
+        else $(".scrollTopButton").hide("slow");
     })
+    $(document).trigger("scroll");
 })
