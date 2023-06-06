@@ -35,7 +35,8 @@ class User extends \TCG\Voyager\Models\User
         'category',
         'details',
         'involvement',
-        'filled'
+        'filled',
+        'role_id'
     ];
 
     /**

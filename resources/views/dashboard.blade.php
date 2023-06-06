@@ -29,7 +29,7 @@
                                 $church=preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ','_',strtolower($entity->name)));
                             @endphp
                             @for ($i = 0; $i < $entity->pax; $i++)
-                                <h6>Person {{$i+1}}</h6>
+                                <h6>Delegate {{$i+1}}</h6>
                                 @switch($entity->category)
                                     @case("Church")
                                         @include("forms.church", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsChurch, "church"=>$church, "number"=>$i])
