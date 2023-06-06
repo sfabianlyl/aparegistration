@@ -38,8 +38,8 @@ $(document).ready(function(){
         window.scrollTo(0,0);
     });
     $(document).on("scroll",function(){
-        if($(this).scrollTop()>200) $(".scrollTopButton").show("slow");
-        else $(".scrollTopButton").hide("slow");
+        if($(this).scrollTop()>200) $(".scrollTopButton").show();
+        else $(".scrollTopButton").hide();
     })
     $(document).trigger("scroll");
 })
