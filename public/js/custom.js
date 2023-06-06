@@ -34,4 +34,7 @@ $(document).ready(function(){
             $("#autoSubmitForm").submit();
         },1500);
     });
+    $("#scrollTopButton").on("click",function(){
+        window.scrollTo(0,0);
+    })
 })

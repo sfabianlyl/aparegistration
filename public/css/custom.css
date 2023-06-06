@@ -25,3 +25,24 @@ h6{font-size:1.3rem; margin-bottom:1.0rem;}
 h1,h2,h3{
     font-weight:bold;
 }
+
+.scrollTopButton {
+    position: fixed;
+    bottom: 20%;
+    right: 0;
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    background-color: rgba(173, 36, 36, 0.829);
+    cursor: pointer;
+    color:#ccc;
+    transition: background-color .4s, color .4s;
+    z-index:10000;
+}
+
+.scrollTopButton:hover{
+    background-color: rgba(173, 36, 36,1);
+    color:#eee;
+}
+
+html,body{ scroll-behavior: smooth}
