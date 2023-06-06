@@ -56,6 +56,15 @@
                             @endphp
 
                             @foreach($dataTypeRows as $row)
+                                @php
+                                    if(!auth()->user()->hasRole('admin') && $row->field == 'user_belongsto_role_relationship') {
+                                        continue;
+                                    }
+
+                                    if(!auth()->user()->hasRole('admin') && $row->field == 'user_belongstomany_role_relationship') {
+                                        continue;
+                                    }
+                                @endphp
                                 <!-- GET THE DISPLAY OPTIONS -->
                                 @php
                                     $display_options = $row->details->display ?? NULL;
