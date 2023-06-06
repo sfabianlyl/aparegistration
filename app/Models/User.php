@@ -66,5 +66,8 @@ class User extends \TCG\Voyager\Models\User
     public function scopeClergy($query){
         return $query->where('role_id', 4);
     }
-
+    public function scopeAdmin($query){
+        if(auth()->role_id==1) return $query;
+        return $query->where('role_id', 4);
+    }
 }
