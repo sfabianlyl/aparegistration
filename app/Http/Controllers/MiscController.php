@@ -46,9 +46,10 @@ class MiscController extends BaseController
             }else if($name){
                 $unregistered[]=$name;
             }
-            Storage::append('registered.csv',implode("\n",$registered));
-            Storage::put('unregistered.csv',implode("\n",$unregistered));
+            
         }
+        Storage::append('registered.csv',implode("\n",$registered));
+        Storage::put('unregistered.csv',implode("\n",$unregistered??[]));
         return response()->json(["status"=>"success"]);
     }
 
