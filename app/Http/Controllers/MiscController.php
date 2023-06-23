@@ -29,9 +29,12 @@ class MiscController extends BaseController
         foreach($priests as $priest){
             $name=trim($priest[0]??"");
             $email=trim($priest[1]??"");
-
+            
             if($email!=""){
+                if(User::where('email',$email)->first()) continue;
+                
                 $password=substr(Hash::make($name.$email),0,10);
+                
                 $user = User::create([
                     'name' => $name,
                     'email' => $email,
@@ -42,7 +45,7 @@ class MiscController extends BaseController
             }else if($name){
                 $unregistered[]=$name;
             }
-            Storage::put('registered.csv',implode("\n",$registered));
+            Storage::append('registered.csv',implode("\n",$registered));
             Storage::put('unregistered.csv',implode("\n",$unregistered));
         }
         return response()->json(["status"=>"success"]);
