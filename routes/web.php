@@ -25,4 +25,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get("/upload_priests", "App\Http\Controllers\MiscController@upload_priests")->middleware(['auth'])->name('misc.upload.priests');
+
 require __DIR__.'/auth.php';
