@@ -40,6 +40,9 @@
                                     @case("Chapel")
                                         @include("forms.chapel", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsChapel, "church"=>$church, "number"=>$i])
                                     @break
+                                    @case("Mass Centre")
+                                        @include("forms.mass_centre", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsMassCentre, "church"=>$church, "number"=>$i])
+                                    @break
                                     @case("Ministry/Office")
                                         @include("forms.ministry", ["inputs"=>$inputs[$church][$i]??[], "details"=>$detailsMinistry, "church"=>$church, "number"=>$i])
                                     @break

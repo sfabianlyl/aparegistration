@@ -31,6 +31,7 @@ class FormController extends BaseController
         $inputs=json_decode($user->filled,true);
         $detailsChapel=Detail::whereJsonContains('forms','chapel')->get();
         $detailsChurch=Detail::whereJsonContains('forms','church')->get();
+        $detailsMassCentre=Detail::whereJsonContains('forms','mass_centres')->get();
         $detailsMinistry=Detail::whereJsonContains('forms','ministry')->get();
         $detailsPriest=Detail::whereJsonContains('forms','priest')->get();
         
@@ -41,7 +42,8 @@ class FormController extends BaseController
             "detailsChapel",
             "detailsChurch",
             "detailsMinistry",
-            "detailsPriest"
+            "detailsPriest",
+            "detailsMassCentre"
         ));
     }
 
