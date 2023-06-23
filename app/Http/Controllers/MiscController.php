@@ -42,9 +42,9 @@ class MiscController extends BaseController
                     'password' => Hash::make($password),
                     'role_id'=>4
                 ]);
-                $registered[]='"$name","$email","$password"';
+                $registered[]="\"$name\",\"$email\",\"$password\"";
             }else if($name){
-                $unregistered[]='"$name"';
+                $unregistered[]="\"$name\"";
             }
             
         }
