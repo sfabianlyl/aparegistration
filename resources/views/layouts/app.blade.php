@@ -46,5 +46,12 @@
                 {{ $slot }}
             </main>
         </div>
+        @if(session('status'))
+            <script>
+                $(document).ready(function(){
+                    toastr.success("{{session('status')}}");
+                });
+            </script>
+        @endif
     </body>
 </html>
