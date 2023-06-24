@@ -33,7 +33,7 @@ class NewPasswordController extends Controller
             'new_password'=>['required', 'confirmed', Rules\Password::defaults()]
         ]);
         $user=auth()->user();
-        if(Hash::make($request->password)!=$user->password){
+        if(!Hash::check($request->password, $user->password)){
             return back()->withErrors(['password'=> "Wrong password. Please try again."]);
         }
 
