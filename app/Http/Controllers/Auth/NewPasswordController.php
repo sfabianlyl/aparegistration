@@ -23,6 +23,26 @@ class NewPasswordController extends Controller
         return view('auth.reset-password', ['request' => $request]);
     }
 
+    public function change(Request $request){
+        return view('auth.change-password');
+    }
+
+    public function update(Request $request){
+        $request->validate([
+            'password' => ['required'],
+            'new_password'=>['required', 'confirmed', Rules\Password::defaults()]
+        ]);
+        $user=auth()->user();
+        if(Hash::make($request->password)!=$user->password){
+            return back()->withErrors(['password'=> "Wrong password. Please try again."]);
+        }
+
+        $user->password=Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->route('dashboard')->with('status', "Changed password successfully");
+    }
+
     /**
      * Handle an incoming new password request.
      *
