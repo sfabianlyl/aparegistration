@@ -51,7 +51,8 @@ class FormController extends BaseController
         $user=auth()->user();
         $user->filled=json_encode($request->form);
         $user->save();
-        $request->merge(['self["details"]'=>json_encode($request->self)]);
+        if(isset($request->self["details"]))
+        $request->merge(['self["details"]'=>json_encode($request->self["details"])]);
         User::where("id",$user->id)->update($request->self);
         return response()->json(["status"=>"success"]);
     }
