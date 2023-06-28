@@ -1,6 +1,6 @@
 @include("forms.parts.name", ["value"=>$inputs["name"]??"","name"=>"form[$church][$number][name]"])
-@include("forms.parts.ic", ["value"=>$inputs["ic"]??"","name"=>"form[$church][$number][ic]"])
 @include("forms.parts.age", ["value"=>$inputs["age"]??"","name"=>"form[$church][$number][age]"])
+@include("forms.parts.ic", ["value"=>$inputs["ic"]??"","name"=>"form[$church][$number][ic]"])
 @include("forms.parts.involvement", ["value"=>$inputs["involvement"]??"","name"=>"form[$church][$number][involvement]", "text"=>"Diocesan Ministries / Offices"])
 @include("forms.parts.staff_volunteer", ["value"=>$inputs["staff_volunteer"]??"","name"=>"form[$church][$number][staff_volunteer]"])
 @include("forms.parts.gender", ["value"=>$inputs["gender"]??"","name"=>"form[$church][$number][gender]"])
