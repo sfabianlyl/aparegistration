@@ -29,11 +29,11 @@ class FormController extends BaseController
         $user=auth()->user();
         $entities=$user->entities; 
         $inputs=json_decode($user->filled,true);
-        $detailsChapel=Detail::whereJsonContains('forms','chapel')->get();
-        $detailsChurch=Detail::whereJsonContains('forms','church')->get();
-        $detailsMassCentre=Detail::whereJsonContains('forms','mass_centres')->get();
-        $detailsMinistry=Detail::whereJsonContains('forms','ministry')->get();
-        $detailsPriest=Detail::whereJsonContains('forms','priest')->get();
+        $detailsChapel=Detail::whereJsonContains('forms->chapel','chapel')->get();
+        $detailsChurch=Detail::whereJsonContains('forms->church','church')->get();
+        $detailsMassCentre=Detail::whereJsonContains('forms->mass_centres','mass_centres')->get();
+        $detailsMinistry=Detail::whereJsonContains('forms->ministry','ministry')->get();
+        $detailsPriest=Detail::whereJsonContains('forms->priest','priest')->get();
         
         return view("dashboard")->with(compact(
             "user",
