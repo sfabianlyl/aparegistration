@@ -4,6 +4,7 @@
 @include("forms.parts.involvement", ["value"=>$inputs["involvement"]??"","name"=>"form[$church][$number][involvement]", "text"=>"the Parish / Parish Ministry"])
 @include("forms.parts.gender", ["value"=>$inputs["gender"]??"","name"=>"form[$church][$number][gender]"])
 @include("forms.parts.differently_abled", ["value"=>$inputs["differently_abled"]??"","name"=>"form[$church][$number][differently_abled]"])
+@include("forms.parts.language", ["value"=>$inputs["language"]??"","name"=>"form[$church][$number][language]"])
 @include("forms.parts.leadership", ["value"=>$inputs["leadership"]??"","name"=>"form[$church][$number][leadership]"])
 @include("forms.parts.accomodation", ["value"=>$inputs["accomodation"]??"","name"=>"form[$church][$number][accomodation]"])
 @include("forms.parts.diet", ["value"=>$inputs["diet"]??"","name"=>"form[$church][$number][diet]"])
