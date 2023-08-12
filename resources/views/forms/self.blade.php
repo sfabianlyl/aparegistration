@@ -2,6 +2,7 @@
     $priestDetails=json_decode($user->details,true);
 @endphp
 
+@include("forms.parts.attendance", ["value"=>$priestDetails["attendance"]??"","name"=>"self[details][attendance]"])
 @include("forms.parts.name", ["value"=>$user->name??"","name"=>"self[name]"])
 @include("forms.parts.age", ["value"=>$user->age??"","name"=>"self[age]"])
 @include("forms.parts.ic", ["value"=>$user->ic??"","name"=>"self[ic]"])
