@@ -6,9 +6,13 @@
 @include("forms.parts.name", ["value"=>$user->name??"","name"=>"self[name]"])
 @include("forms.parts.age", ["value"=>$user->age??"","name"=>"self[age]"])
 @include("forms.parts.ic", ["value"=>$user->ic??"","name"=>"self[ic]"])
-@include("forms.parts.category", ["value"=>$user->category??"","name"=>"self[category]"])
+@if($user->role_id==4)
+        @include("forms.parts.category", ["value"=>$user->category??"","name"=>"self[category]"])
+@endif
 @include("forms.parts.involvement", ["value"=>$user->involvement??"","name"=>"self[involvement]", "text"=>"ArchKL"])
-@include("forms.parts.order", ["value"=>$user->order??"","name"=>"self[order]"])
+@if($user->role_id==4)
+    @include("forms.parts.order", ["value"=>$user->order??"","name"=>"self[order]"])
+@endif
 @include("forms.parts.differently_abled", ["value"=>$user->differently_abled??"","name"=>"self[differently_abled]"])
 @include("forms.parts.language", ["value"=>$priestDetails["language"]??"","name"=>"self[details][language]"])
 @include("forms.parts.leadership", ["value"=>$user->leadership??"","name"=>"self[leadership]"])

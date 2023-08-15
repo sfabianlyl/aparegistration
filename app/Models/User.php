@@ -64,10 +64,10 @@ class User extends \TCG\Voyager\Models\User
     }
 
     public function scopeClergy($query){
-        return $query->where('role_id', 4);
+        return $query->whereIn('role_id', [4,5]);
     }
     public function scopeAdminSecretariat($query){
         if(auth()->user()->role_id==1) return $query;
-        return $query->where('role_id', 4);
+        return $query->whereIn('role_id', [4,5]);
     }
 }
