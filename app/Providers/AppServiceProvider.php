@@ -24,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Voyager::useModel('Role', \App\Models\Role::class);
     }
 }
