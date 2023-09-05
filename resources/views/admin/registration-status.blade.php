@@ -40,7 +40,7 @@
                                 if($person["name"])
                                 $majorCount++;
                             @endphp
-                            <li {{$majorCount==$priest->entities->sum("pax")? "style='color:green;'":""}}>{{$priest->name}}: {{$majorCount}}/{{$priest->entities->sum("pax")}}</li>
+                            <li {{$majorCount==$priest->entities->sum("pax")? "style=\"color:green;\"":""}}>{{$priest->name}}: {{$majorCount}}/{{$priest->entities->sum("pax")}}</li>
                             <ul>
                                 @foreach($priest->entities as $entity)
                                     @php
@@ -53,7 +53,7 @@
                                         if($person["name"])
                                         $minorCount++;
                                     @endphp
-                                    <li {{$minorCount==$entity->pax? "style='color:green;'":""}}>{{$entity->name}}: {{$minorCount}}/{{$entity->pax}}</li>
+                                    <li {{$minorCount==$entity->pax? "style=\"color:green;\"":""}}>{{$entity->name}}: {{$minorCount}}/{{$entity->pax}}</li>
                                 @endforeach
                             </ul>
                             
