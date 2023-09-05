@@ -45,8 +45,10 @@
                                 @foreach($priest->entities as $entity)
                                     @php
                                         $minorCount=0;
+                                        $code=preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ','_',strtolower($entity->name)));
                                         if($entities)
-                                        foreach($entities[preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ','_',strtolower($entity->name)))] as $person)
+                                        if(isset($entities[$code]))
+                                        foreach($entities[$code] as $person)
                                         if(isset($person["name"]))
                                         if($person["name"])
                                         $minorCount++;
