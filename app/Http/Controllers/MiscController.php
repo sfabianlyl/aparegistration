@@ -57,7 +57,7 @@ class MiscController extends BaseController
     public function registration_status_view(Request $request){
         if(!auth()->user()->isAdmin()) return redirect()->route("dashboard");
 
-        $registrants=User::whereIn("role_id",[4,5])->andWhere("id","!=",2);
+        $registrants=User::whereIn("role_id",[4,5])->where("id","!=",2);
         $registering=$registrants->get();
         $loggedIn=$registrants->whereNotNull("filled")->orWhere("filled","!=","null")->get();
 
