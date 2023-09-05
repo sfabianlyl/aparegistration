@@ -67,6 +67,7 @@ class MiscController extends BaseController
 
         foreach($loggedIn as $priest){
             $entities=json_decode($priest->filled,true);
+            if($entities)
             foreach($entities as $entity=>$people){
                 foreach($people as $person){
                     if(isset($person["name"]))
