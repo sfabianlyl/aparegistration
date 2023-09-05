@@ -59,7 +59,7 @@ class MiscController extends BaseController
 
         $registrants=User::whereIn("role_id",[4,5])->where("id","!=",2);
         $registering=$registrants->get();
-        $loggedIn=$registrants->whereNotNull("filled")->orWhere("filled","!=","null")->get();
+        $loggedIn=$registrants->whereNotNull("filled")->where("filled","!=","null")->get();
 
         $participants_expected=Entity::sum("pax");
 

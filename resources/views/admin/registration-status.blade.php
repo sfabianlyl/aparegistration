@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-bordered">
+                <div class="panel panel-bordered" style="padding:2rem;">
                     
                     <p>Total number of accounts registering: {{count($registering)}}</p>
                     <p>Total number of accounts that have logged in: {{count($loggedIn)}}</p>
