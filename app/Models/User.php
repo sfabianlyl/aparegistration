@@ -63,6 +63,10 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(Entity::class);
     }
 
+    public function isAdmin(){
+        return $this->roles()->whereIn('id',[1,3])->exists();
+    }
+
     public function scopeClergy($query){
         return $query->whereIn('role_id', [4,5]);
     }

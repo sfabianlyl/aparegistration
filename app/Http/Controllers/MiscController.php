@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Detail;
 use App\Models\Registration;
+use App\Models\Entity;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -53,5 +54,34 @@ class MiscController extends BaseController
         return response()->json(["status"=>"success"]);
     }
 
-    
+    public function registration_status_view(Request $request){
+        if(!auth()->user()->isAdmin()) return redirect()->route("dashboard");
+
+        $registrants=User::whereIn("role_id",[4,5])->andWhere("id","!=",2);
+        $registering=$registrants->get();
+        $loggedIn=$registrants->whereNotNull("filled")->orWhere("filled","!=","null")->get();
+
+        $participants_expected=Entity::sum("pax");
+
+        $registered=0;
+
+        foreach($loggedIn as $priest){
+            $entities=json_decode($priest->filled,true);
+            foreach($entities as $entity=>$people){
+                foreach($people as $person){
+                    if(isset($person["name"]))
+                    if($person["name"])
+                    $registered++;
+                }
+            }
+        }
+
+        return view("admin.registration-status")->with(compact(
+            'registering',
+            'loggedIn',
+            'participants_expected',
+            'registered'
+        ));
+
+    }
 }
