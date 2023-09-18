@@ -73,6 +73,156 @@
                             {{$priest->email}}<br> 
                         @endforeach
                     </p>
+
+                    <h3>All details (Registering Accounts)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Attending</th>
+                                <th>Language</th>
+                                <th>IC/Passport</th>
+                                <th>Age</th>
+                                <th>Mobile</th>
+                                <th>Involvement</th>
+                                <th>Diocesan/Religious</th>
+                                <th>Differently Abled Person</th>
+                                <th>Leadership</th>
+                                <th>Accomodation</th>
+                                <th>Driving</th>
+                                <th>Dietary Requirements</th>
+                                <th>Allergy</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $count=0;
+                            @endphp
+                            @foreach($registering as $priest)
+                                @php
+                                    $count++;
+                                    $details=json_decode($priest->details);
+                                @endphp
+                                <tr>
+                                    <td>{{$count}}</td>
+                                    <td>{{$priest->name}}</td>
+                                    <td>
+                                        @switch($priest->category)
+                                            @case(1)
+                                                Parish Priest
+                                                @break
+                                            @case(2)
+                                                Ecclesial Assistant
+                                                @break
+                                            @case(3)
+                                                Parish Priest & Ecclesial Assistant
+                                                @break
+                                            @case(4)
+                                                Clergy
+                                                @break
+                                            @default
+                                                {{$priest->category}}
+                                        @endswitch
+                                    </td>
+                                    <td>{{$details->attendance??""}}</td>
+                                    <td>{{$details->language??""}}</td>
+                                    <td>{{$priest->ic}}</td>
+                                    <td>{{$priest->age}}</td>
+                                    <td>{{$priest->mobile}}</td>
+                                    <td>{{$priest->involvement}}</td>
+                                    <td>{{$priest->order}}</td>
+                                    <td>{{$priest->differently_abled}}</td>
+                                    <td>{{$priest->leadership}}</td>
+                                    <td>{{$priest->accomodation}}</td>
+                                    <td>{{$details->driving??""}}</td>
+                                    <td>{{$priest->diet}}</td>
+                                    <td>{{$priest->allergy}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    <h3>All details (Participants Registered)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Parish/Ministry</th>
+                                <th>Name</th>
+                                <th>Language</th>
+                                <th>IC/Passport</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Staff/Volunteer</th>
+                                <th>Involvement</th>
+                                <th>Differently Abled Person</th>
+                                <th>Leadership</th>
+                                <th>Accomodation</th>
+                                <th>Driving</th>
+                                <th>Dietary Requirements</th>
+                                <th>Allergy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $count=0;
+                                
+                                if($entities)
+                                foreach($entities as $entity=>$people)
+                                foreach($people as $person)
+                                if(isset($person["name"]))
+                            @endphp
+                            @foreach($loggedIn as $priest)
+                                @php
+                                    $entities=json_decode($priest->filled,true);
+                                @endphp
+                                @foreach($priest->entities as $entity)
+                                    @php
+                                        $code=preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ','_',strtolower($entity->name)));
+                                    @endphp
+                                    @if ($entities)
+                                        @if (isset($entities[$code]))
+                                            @foreach ($entities[$code] as $person)
+                                                @if (isset($person["name"]))
+                                                    @if ($person["name"])
+                                                        @php
+                                                            $count++;  
+                                                        @endphp
+                                                        <tr>
+                                                            <td>{{$count}}</td>
+                                                            <td>{{$entity->name}}</td>
+                                                            <td>{{$person["name"]??""}}</td>
+                                                            <td>{{$person["language"]??""}}</td>
+                                                            <td>{{$person["ic"]??""}}</td>
+                                                            <td>{{$person["age"]??""}}</td>
+                                                            <td>{{$person["gender"]??""}}</td>
+                                                            <td>{{$person["email"]??""}}</td>
+                                                            <td>{{$person["mobile"]??""}}</td>
+                                                            <td>{{$person["staff_volunteer"]??""}}</td>
+                                                            <td>{{$person["involvement"]??""}}</td>
+                                                            <td>{{$person["differently_abled"]??""}}</td>
+                                                            <td>{{$person["leadership"]??""}}</td>
+                                                            <td>{{$person["accomodation"]??""}}</td>
+                                                            <td>{{$person["driving"]??""}}</td>
+                                                            <td>{{$person["diet"]??""}}</td>
+                                                            <td>{{$person["allergy"]??""}}</td>
+                                                        </tr>
+                                                    @endif
+                                                @endif
+                                                
+                                            @endforeach
+                                        @endif
+                                    @endif
+                                @endforeach
+                                
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
