@@ -13,13 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route("dashboard");
-});
+Route::view('/', "deadline")->name('registration.end');
+Route::redirect('/dashboard', "/");
+Route::redirect('/login', "/");
 
-Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
 
-Route::post('/submit', "App\Http\Controllers\FormController@auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
+// Route::get('/', function () {
+//     return redirect()->route("dashboard");
+// });
+
+// Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
+
+// Route::post('/submit', "App\Http\Controllers\FormController@auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -28,4 +33,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Route::get("/upload_priests", "App\Http\Controllers\MiscController@upload_priests")->middleware(['auth'])->name('misc.upload.priests');
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
