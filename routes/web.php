@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 
 // Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
 
-Route::get('/', "dashboard-mock")->name('dashboard');
+Route::view('/', "dashboard-mock")->name('dashboard');
 
 Route::post('/submit', "App\Http\Controllers\FormController@mock_auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
 
