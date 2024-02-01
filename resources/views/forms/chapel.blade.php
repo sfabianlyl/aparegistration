@@ -12,6 +12,6 @@
 @include("forms.parts.email", ["value"=>$inputs["email"]??"","name"=>"form[$church][$number][email]"])
 @include("forms.parts.mobile", ["value"=>$inputs["mobile"]??"","name"=>"form[$church][$number][mobile]"])
 
-@foreach($details as $detail)
+@foreach($details??[] as $detail)
     @include("forms.types.$detail->type", ["value"=>$inputs[$detail->identifier]??"", "name"=>"form[$church][$number][$detail->identifier]", "display"=>$detail->name])
 @endforeach
