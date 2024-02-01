@@ -28,7 +28,7 @@
                     </div>
                     @for ($i = 1; $i < 4; $i++)
                         <div class="tab-pane fade" id="form-member-{{$i}}" role="tabpanel" aria-labelledby="form-member-{{$i}}-tab">
-                            <h4>Member 1</h4>
+                            <h4>Member {{$i}}</h4>
                             @include("forms.church")
                         </div>
                     @endfor
