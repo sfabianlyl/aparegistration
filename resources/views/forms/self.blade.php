@@ -1,5 +1,5 @@
 @php
-    $priestDetails=json_decode($user->details??"",true);
+    $priestDetails=json_decode($user->details??"{}",true);
 @endphp
 
 @include("forms.parts.attendance", ["value"=>$priestDetails["attendance"]??"","name"=>"self[details][attendance]"])
