@@ -57,5 +57,11 @@ class FormController extends BaseController
         return response()->json(["status"=>"success"]);
     }
 
+    public function mock_auto_submit_participants(Request $request){
+        
+        return response()->json(["status"=>"success"]);
+    }
+
+
     
 }

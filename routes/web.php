@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::view('/', "deadline")->name('registration.end');
-Route::redirect('/dashboard', "/");
-Route::redirect('/login', "/");
+// Route::view('/', "deadline")->name('registration.end');
+// Route::redirect('/dashboard', "/");
+// Route::redirect('/login', "/");
 
 
 // Route::get('/', function () {
@@ -24,7 +24,9 @@ Route::redirect('/login', "/");
 
 // Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
 
-// Route::post('/submit', "App\Http\Controllers\FormController@auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
+Route::get('/', "dashboard-mock")->name('dashboard');
+
+Route::post('/submit', "App\Http\Controllers\FormController@mock_auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
