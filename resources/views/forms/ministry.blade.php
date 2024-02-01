@@ -1,3 +1,8 @@
+@php
+    $church=$church??0;
+    $number=$number??0;
+@endphp
+
 @include("forms.parts.name", ["value"=>$inputs["name"]??"","name"=>"form[$church][$number][name]"])
 @include("forms.parts.age", ["value"=>$inputs["age"]??"","name"=>"form[$church][$number][age]"])
 @include("forms.parts.ic", ["value"=>$inputs["ic"]??"","name"=>"form[$church][$number][ic]"])
