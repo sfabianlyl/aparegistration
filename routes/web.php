@@ -23,10 +23,11 @@ use Illuminate\Http\Request;
 // });
 
 // Route::get('/dashboard', "App\Http\Controllers\FormController@view")->middleware(['auth'])->name('dashboard');
+// Route::post('/submit', "App\Http\Controllers\FormController@auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
 
 Route::view('/', "dashboard-mock")->name('dashboard');
+Route::post('/submit', "App\Http\Controllers\FormController@mock_auto_submit_participants")->name('auto.submit.participants');
 
-Route::post('/submit', "App\Http\Controllers\FormController@mock_auto_submit_participants")->middleware(['auth'])->name('auto.submit.participants');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
